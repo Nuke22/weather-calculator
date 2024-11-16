@@ -11,6 +11,10 @@ jobs:
               run: pip install -r requirements.txt 
 
             - name: run script
+              env:
+                API_KEY: ${{secrets.API_KEY}}
+                APP_KEY: ${{secrets.APP_KEY}}
+                MAC: ${{secrets.MAC}}
               run: python main.py
 
             - name: Generate HTML file
