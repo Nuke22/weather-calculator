@@ -1,0 +1,20 @@
+name: run the main script
+on:
+    schedule:
+        - cron: "0 */2 * * *" # runs every 2 h
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Install dependencies 
+              run: pip install -r requirements.txt 
+
+            - name: run script
+              run: python main.py
+
+            - name: Generate HTML file
+              run: python my_script.py > result.html
+              
+            - name: report pompletion          
+              run: echo "Workflow completed!"
