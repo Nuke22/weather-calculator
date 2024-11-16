@@ -44,8 +44,7 @@ x_hours_earlier = now - timedelta(hours=24)
 five_min_formatted = five_minutes_earlier.strftime("%Y-%m-%d %H:%M:%S")
 x_hours_formatted = x_hours_earlier.strftime("%Y-%m-%d %H:%M:%S")
 
-print("\nчас зараз:", five_min_formatted)
-print("час початку спостереження:", x_hours_formatted)
+print(f"<p>Оновлено: {five_min_formatted}</p>")
 
 # Set up the API endpoint
 url = f"https://api.ecowitt.net/api/v3/device/history"
@@ -67,15 +66,13 @@ response = requests.get(url, params=params)
 if response.status_code == 200:
     data = response.json()
     result_index = apply_formula(data)
-    print(f"Значення індексу Бокші: {result_index}")
+    print(f"<p>Значення індексу Бокші: <b>{result_index}</b></p>")
 else:
     print("Request failed:", response.status_code)
 
 if result_index <= 9:
-    print("Оптимальні значення")
+    print("<p>Оптимальні значення</p>")
 elif result_index < 30:
-    print("Подразнюючі значення")
+    print("<p>Подразнюючі значення</p>")
 else:
-    print("Гострі значення")
-
-print("")
+    print("<p>Гострі значення</p>")
