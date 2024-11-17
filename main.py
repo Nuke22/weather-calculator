@@ -9,6 +9,7 @@ API_KEY = os.getenv("API_KEY")
 APP_KEY = os.getenv("APP_KEY")
 MAC = os.getenv("MAC")
 def apply_formula (data):
+    print(f"data: {data}")
     temperature_json = data["data"]["outdoor"]["temperature"]["list"]
     temperature_list = list(temperature_json.values())
     t_old = float(temperature_list[0])
