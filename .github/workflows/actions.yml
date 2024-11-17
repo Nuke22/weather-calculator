@@ -14,15 +14,12 @@ jobs:
             - name: Install dependencies 
               run: pip install -r ./requirements.txt 
 
-            - name: run script
+            - name: run script & generate HTML
               env:
                 API_KEY: ${{secrets.API_KEY}}
                 APP_KEY: ${{secrets.APP_KEY}}
                 MAC: ${{secrets.MAC}}
-              run: python main.py
-
-            - name: Generate HTML file
-              run: python my_script.py > result.html
+              run: python main.py > result.html
               
             - name: report pompletion          
               run: echo "Workflow completed!"
