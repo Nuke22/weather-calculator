@@ -1,8 +1,13 @@
 import requests
 from datetime import datetime, timedelta
-from config import *
+# from config import *      # disabled for git
+import os
 import json
 
+
+API_KEY = os.getenv("API_KEY")
+APP_KEY = os.getenv("APP_KEY")
+MAC = os.getenv("MAC")
 def apply_formula (data):
     temperature_json = data["data"]["outdoor"]["temperature"]["list"]
     temperature_list = list(temperature_json.values())
