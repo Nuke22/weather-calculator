@@ -27,6 +27,6 @@ jobs:
                 git config --global user.name "Yurii"
                 git add result.html
                 git commit -m "Update result.html"
-                git push origin result.html:result-update
+                git push origin result-update
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
