@@ -21,5 +21,12 @@ jobs:
                 MAC: ${{secrets.MAC}}
               run: python main.py > result.html
               
-            - name: report pompletion          
-              run: echo "Workflow completed!"
+            - name: Commit result.html to GitHub Pages
+              run: |
+                git config --global user.email "yura.nuke22@gmail.com"
+                git config --global user.name "Yurii"
+                git add result.html
+                git commit -m "Update result.html"
+                git push origin result.html:result-update
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
