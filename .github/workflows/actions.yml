@@ -19,15 +19,15 @@ jobs:
                 API_KEY: ${{secrets.API_KEY}}
                 APP_KEY: ${{secrets.APP_KEY}}
                 MAC: ${{secrets.MAC}}
-              run: python main.py > result.html
+              run: python main.py > ./docs/result.html
               
             - name: Commit result.html to GitHub Pages
               run: |
                 git config --global user.email "yura.nuke22@gmail.com"
                 git config --global user.name "Yurii"
                 git branch -a
-                git add result.html
+                git add *
                 git commit -m "Update result.html"
-                git push origin result-update
+                git push
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
