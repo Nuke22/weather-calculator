@@ -2,7 +2,7 @@ import requests
 from datetime import datetime, timedelta
 # from config import *      # disabled for git
 import os
-import json
+from zoneinfo import ZoneInfo
 
 
 API_KEY = os.getenv("API_KEY")
@@ -42,7 +42,7 @@ def apply_formula (data):
     return round(I_total, 2)
 
 # get current time and format it
-now = datetime.now()
+now = datetime.now(ZoneInfo("Europe/Kiev"))
 five_minutes_earlier = now - timedelta(minutes=5)
 x_hours_earlier = now - timedelta(hours=24)
 # Format
