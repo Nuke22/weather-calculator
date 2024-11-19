@@ -21,15 +21,13 @@ jobs:
                 MAC: ${{secrets.MAC}}
               run: python main.py > ./result.html
 
-            - name: Upload result.html
-              uses: actions/upload-artifact@v3
-              with:
-                name: result-html
-                path: result.html
+            - name: Check where's the result
+              run: ls - a
+              
                     
               # Deploy to GitHub Pages
             - name: Deploy to GitHub Pages
               uses: peaceiris/actions-gh-pages@v4
               with:
                 github_token: ${{ secrets.GITHUB_TOKEN }}
-                publish_dir: ./public
+                publish_dir: ./
