@@ -19,7 +19,7 @@ jobs:
                 API_KEY: ${{secrets.API_KEY}}
                 APP_KEY: ${{secrets.APP_KEY}}
                 MAC: ${{secrets.MAC}}
-              run: python main.py > ./docs/result.html
+              run: python main.py > result.html
               
               # Deploy to GitHub Pages
             - name: Deploy to GitHub Pages
