@@ -22,7 +22,7 @@ jobs:
               run: python main.py > ./result.html
 
             - name: Check where's the result
-              run: ls - a
+              run: ls -a
               
                     
               # Deploy to GitHub Pages
