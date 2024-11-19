@@ -19,7 +19,9 @@ jobs:
                 API_KEY: ${{secrets.API_KEY}}
                 APP_KEY: ${{secrets.APP_KEY}}
                 MAC: ${{secrets.MAC}}
-              run: python main.py > ./public/result.html
+              run: |
+                mkdir ./public
+                python main.py > ./public/result.html
 
             - name: Check where's the result
               run: ls -a
