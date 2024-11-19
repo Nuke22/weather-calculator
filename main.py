@@ -48,8 +48,8 @@ x_hours_earlier = now - timedelta(hours=24)
 # Format
 five_min_formatted = five_minutes_earlier.strftime("%Y-%m-%d %H:%M:%S")
 x_hours_formatted = x_hours_earlier.strftime("%Y-%m-%d %H:%M:%S")
-
-print(f"<p>Оновлено: {five_min_formatted}</p>")
+update_time_formatted  = five_minutes_earlier.strftime("%H:%M")
+print(f"<p>Оновлено: {update_time_formatted}</p>")
 
 # Set up the API endpoint
 url = f"https://api.ecowitt.net/api/v3/device/history"
