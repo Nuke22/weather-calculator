@@ -19,7 +19,7 @@ jobs:
                 API_KEY: ${{secrets.API_KEY}}
                 APP_KEY: ${{secrets.APP_KEY}}
                 MAC: ${{secrets.MAC}}
-              run: python main.py > ./result.html
+              run: python main.py > ./public/result.html
 
             - name: Check where's the result
               run: ls -a
@@ -30,4 +30,4 @@ jobs:
               uses: peaceiris/actions-gh-pages@v4
               with:
                 github_token: ${{ secrets.GITHUB_TOKEN }}
-                publish_dir: ./
+                publish_dir: ./public
