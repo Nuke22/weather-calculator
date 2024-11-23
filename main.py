@@ -4,14 +4,26 @@ from config import *
 from zoneinfo import ZoneInfo
 
 
+now = datetime.now()
+five_minutes_earlier = now - timedelta(minutes=5)
+x_hours_earlier = now - timedelta(hours=24)
+
+# Format
+five_min_formatted = five_minutes_earlier.strftime("%Y-%m-%d %H:%M:%S")
+x_hours_formatted = x_hours_earlier.strftime("%Y-%m-%d %H:%M:%S")
 
 # Set up the API endpoint
-url = f"https://api.ecowitt.net/api/v3/device/real_time"
+url = f"https://api.ecowitt.net/api/v3/device/history"
 params = {
     "api_key": API_KEY,
     "application_key": APP_KEY,
     "mac": MAC,
-    "call_back": "all"
+    "start_date": x_hours_formatted,
+    "end_date": five_min_formatted, 
+    "temp_unitid": "1",
+    "pressure_unitid": "3",
+    "wind_speed_unitid": "6",
+    "call_back": "outdoor.temperature,outdoor.humidity,wind.wind_speed,pressure"
 }
 
 response = requests.get(url, params=params)
@@ -21,10 +33,3 @@ if response.status_code == 200:
     print(data)
 else:
     print("Request failed:", response.status_code)
-
-if result_index <= 9:
-    print("<p>Оптимальні значення</p>")
-elif result_index < 30:
-    print("<p>Подразнюючі значення</p>")
-else:
-    print("<p>Гострі значення</p>")
