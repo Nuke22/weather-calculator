@@ -21,11 +21,7 @@ jobs:
                 MAC: ${{secrets.MAC}}
               run: |
                 mkdir ./public
-                python main.py > ./public/result.html
-
-            - name: Check where's the result
-              run: ls -a
-              
+                python main.py > ./public/result.html           
                     
               # Deploy to GitHub Pages
             - name: Deploy to GitHub Pages

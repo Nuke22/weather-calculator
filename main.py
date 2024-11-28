@@ -42,7 +42,7 @@ def apply_formula (data):
     return round(I_total, 2)
 
 # get current time and format it
-now = datetime.now(ZoneInfo("Europe/Kiev"))
+now = datetime.now(ZoneInfo("Europe/Kyiv"))
 five_minutes_earlier = now - timedelta(minutes=5)
 x_hours_earlier = now - timedelta(hours=24)
 # Format
